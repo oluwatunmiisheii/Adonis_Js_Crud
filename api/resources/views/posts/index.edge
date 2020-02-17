@@ -1,0 +1,12 @@
+@layout('main')
+
+@section('content')
+  <div class="mt-5">
+    <h1 class="text-white mb-2">{{title}}</h1>
+    <ul class="list-group">
+      @each(post in posts)
+        <li class="list-group-item">{{post.title}}</li>
+      @endeach
+    </ul>
+  </div>
+@endsection
