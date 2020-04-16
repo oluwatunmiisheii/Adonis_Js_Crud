@@ -1,0 +1,22 @@
+@layout('main')
+
+@section('content')
+  <div class="mt-5">
+    <a href="/posts">Go Back</a>
+    <hr>
+    <h1 class="text-white mb-4">Add Post</h1>
+    <form action="{{ route('/post') }}" method="POST">
+      {{csrfField()}}
+      <div class="form-group">
+        <label class="text-white">Title</label>
+        <input type="text" class="form-control" placeholder="Title" name="title" />
+      </div>
+      <div class="form-group">
+        <label class="text-white">Body</label>
+        <textarea name="body" class="form-control" placeholder="body"></textarea>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+@endsection

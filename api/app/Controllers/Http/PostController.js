@@ -16,6 +16,22 @@ class PostController {
       post: post
     });
   }
+
+  async add({ view }) {
+    return view.render("posts.add");
+  }
+
+  async store({ request, response, session }) {
+    const post = new Post();
+    post.title = request.input("title");
+    post.body = request.input("body");
+
+    await post.save();
+
+    session.flash({ notification: "Post Added" });
+
+    return response.redirect("/posts");
+  }
 }
 
 module.exports = PostController;

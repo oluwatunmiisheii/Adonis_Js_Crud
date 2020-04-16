@@ -3,10 +3,15 @@
 @section('content')
   <div class="mt-5">
     <h1 class="text-white mb-2">{{title}}</h1>
+    @if(old('notification'))
+      <div class="alert alert-success">
+        {{old ('notification')}}
+      </div>
+    @endif
     <ul class="list-group">
       @each(post in posts)
         <li class="list-group-item">
-        <a href="/posts/{{post.id}}">{{post.title}}</a>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
       </li>
       @endeach
     </ul>
